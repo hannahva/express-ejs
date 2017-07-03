@@ -35,6 +35,13 @@ var posts = [
 app.set('view engine', 'ejs')
 
 //blog home page
+app.get('/', (req, res) => {
+  //render 'home.ejs' with the list of posts
+  res.render('home', {posts: posts})
+})
+
+
+//blog post
 app.get('/post/:id', (req, res) => {
   // find the post in the 'posts' array
   var post = posts.filter((post) => {
